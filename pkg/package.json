@@ -1,0 +1,12 @@
+{
+  "name": "raytracer",
+  "version": "0.1.0",
+  "files": [
+    "raytracer_bg.wasm",
+    "raytracer.js",
+    "raytracer.d.ts"
+  ],
+  "module": "raytracer.js",
+  "types": "raytracer.d.ts",
+  "sideEffects": false
+}
