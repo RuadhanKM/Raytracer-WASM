@@ -1,0 +1,19 @@
+[package]
+name = "raytracer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.dev]
+lto = true
+opt-level = 3
+
+[dependencies]
+wasm-bindgen = {version = "0.2.63", features = ["serde-serialize"]}
+serde = { version = "1.0", features = ["derive"] }
+js-sys = "*"
+web-sys = { version="*", features = ["console"] }
