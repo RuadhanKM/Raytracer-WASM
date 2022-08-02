@@ -14,6 +14,8 @@ var data
 var campos = new vec3(0, 10, 0)
 var camrot = new vec3(0.4, 0, 0)
 
+let lightDir = new vec3(1, 0.5, -1).norm()
+
 let main = () => {
     if (document.getElementById("rust").checked) {
         data = wasm.render_line(data, scene, campos, camrot, sx, sy, y)
@@ -42,7 +44,6 @@ let main = () => {
 
                 let normal = fintri.getNormal()
 
-                let lightDir = new vec3(0,1,0)
                 let diffuse = normal.dot(lightDir);
                 val = val.muls(diffuse)
             }

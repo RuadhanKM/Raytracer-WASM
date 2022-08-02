@@ -9,14 +9,14 @@ pub fn render_line(data: js_sys::Uint8ClampedArray, js_scene: &JsValue, js_campo
     let camrot: Vec3 = js_camrot.into_serde().unwrap();
     //let data = js_sys::Uint8ClampedArray::new_with_length(data_length.try_into().unwrap());
     
+    let light_dir = Vec3::new(1.0,0.5,-1.0).norm();
+
     for x in 0..sx {
         let data_index = (4 * x) + (4 * (sy-y) * sx);
         
         let orig = Vec3::new(campos.x, campos.y, campos.z);
         let look_vector = Vec3::new(((x-sx/2) as f64/sx as f64).into(), ((y-sy/2) as f64/sx as f64).into(), 1.0).rotate(camrot);
         let mut val = Vec3::new(0.0, 0.0, 0.0);
-
-        let light_dir = Vec3::new(1.0,0.5,-1.0).norm();
 
         let mut closest_point = f64::MAX;
         let mut main_tri_op: Option<Tri> = None;
